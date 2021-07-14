@@ -1,0 +1,35 @@
+//TESTSORT JOB  (SETUP),
+//             'TEST SORT',
+//             CLASS=A,
+//             MSGCLASS=X,
+//             MSGLEVEL=(1,1)
+//********************************************************************
+//*
+//* NAME: TESTSORT
+//*
+//* DESC: TEST SORT INSTALLATION
+//*
+//********************************************************************
+//SORT    EXEC PGM=SORT,REGION=512K,PARM='MSG=AP'
+//SYSOUT   DD  SYSOUT=X
+//SYSUDUMP DD  SYSOUT=A
+//SYSPRINT DD  SYSOUT=X
+//SORTLIB  DD  DSNAME=SYS1.SORTLIB,DISP=SHR
+//SORTOUT  DD  DSN=HERC01.EMULATOR.OUTPUT,DISP=SHR
+//SORTWK01 DD  UNIT=2314,SPACE=(CYL,(5,5)),VOL=SER=SORT01
+//SORTWK02 DD  UNIT=2314,SPACE=(CYL,(5,5)),VOL=SER=SORT02
+//SORTWK03 DD  UNIT=2314,SPACE=(CYL,(5,5)),VOL=SER=SORT03
+//SYSIN    DD  *
+ SORT FIELDS=(40,7,CH,A)
+ RECORD TYPE=F,LENGTH=(80)
+ END
+/*
+//SORTIN   DD *
+*****000001****************************MERCURY**************************
+*****000002****************************VENUS  **************************
+*****000003****************************EARTH  **************************
+*****000004****************************MARS   **************************
+*****000005****************************JUPITER**************************
+*****000006****************************SATURN **************************
+*****000007****************************URANUS **************************
+*****000008****************************NEPTUNE**************************
